@@ -59,7 +59,7 @@ public class UserService implements IUserService {
         else {
             request.put("tip", "登录成功！");
             user = (Account) list.get(0);
-            session.put("loginUser", user);
+            session.put("user", user);
             return true;
         }
     }
