@@ -5,6 +5,15 @@ import java.util.Objects;
 public class Account {
     private String id;
     private String password;
+    private Integer user_right;
+
+    public Integer getUser_right() {
+        return user_right;
+    }
+
+    public void setUser_right(Integer user_right) {
+        this.user_right = user_right;
+    }
 
     public String getId() {
         return id;

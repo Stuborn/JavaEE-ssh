@@ -931,20 +931,69 @@
       <DefaultForCharset>0</DefaultForCharset>
     </collation>
     <table id="235" parent="4" name="account"/>
-    <column id="236" parent="235" name="ID">
+    <table id="236" parent="4" name="building"/>
+    <table id="237" parent="4" name="dorm"/>
+    <column id="238" parent="235" name="user_id">
       <Position>1</Position>
       <DataType>varchar(12)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="237" parent="235" name="password">
+    <column id="239" parent="235" name="user_password">
       <Position>2</Position>
       <DataType>varchar(20)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="238" parent="235" name="PRIMARY">
+    <column id="240" parent="235" name="user_right">
+      <Position>3</Position>
+      <DataType>int(1)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <key id="241" parent="235" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
-      <ColNames>ID</ColNames>
+      <ColNames>user_id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="242" parent="236" name="building_id">
+      <Position>1</Position>
+      <DataType>int(11)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="243" parent="236" name="building_name">
+      <Position>2</Position>
+      <DataType>varchar(10)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <key id="244" parent="236" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>building_id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="245" parent="237" name="dorm_id">
+      <Position>1</Position>
+      <DataType>varchar(11)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="246" parent="237" name="dorm_name">
+      <Position>2</Position>
+      <DataType>varchar(10)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="247" parent="237" name="dorm_people_num">
+      <Position>3</Position>
+      <DataType>int(11)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="248" parent="237" name="dorm_type">
+      <Position>4</Position>
+      <DataType>varchar(10)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <key id="249" parent="237" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>dorm_id</ColNames>
       <Primary>1</Primary>
     </key>
   </database-model>
