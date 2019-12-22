@@ -1,15 +1,14 @@
 package cn.edu.zjut.po;
 
-import org.hibernate.annotations.DynamicInsert;
-import org.hibernate.annotations.DynamicUpdate;
-import org.hibernate.annotations.SelectBeforeUpdate;
-
 import java.util.Objects;
+import java.util.Set;
 
 public class AccountEntity {
     private String userId;
     private String userPassword;
     private Integer userRight;
+    private DormEntity dormByDormId;
+    private Set<BuildingEntity> buildings;
 
     public String getUserId() {
         return userId;
@@ -35,6 +34,14 @@ public class AccountEntity {
         this.userRight = userRight;
     }
 
+    public Set<BuildingEntity> getBuildings() {
+        return buildings;
+    }
+
+    public void setBuildings(Set<BuildingEntity> buildings) {
+        this.buildings = buildings;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -49,4 +56,13 @@ public class AccountEntity {
     public int hashCode() {
         return Objects.hash(userId, userPassword, userRight);
     }
+
+    public DormEntity getDormByDormId() {
+        return dormByDormId;
+    }
+
+    public void setDormByDormId(DormEntity dormByDormId) {
+        this.dormByDormId = dormByDormId;
+    }
+
 }

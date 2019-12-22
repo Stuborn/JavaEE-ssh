@@ -934,76 +934,81 @@
     <table id="236" parent="4" name="building"/>
     <table id="237" parent="4" name="building_admin"/>
     <table id="238" parent="4" name="dorm"/>
-    <table id="239" parent="4" name="dorm_admin"/>
-    <column id="240" parent="235" name="user_id">
+    <column id="239" parent="235" name="user_id">
       <Position>1</Position>
       <DataType>varchar(12)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="241" parent="235" name="user_password">
+    <column id="240" parent="235" name="user_password">
       <Position>2</Position>
       <DataType>varchar(20)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="242" parent="235" name="user_right">
+    <column id="241" parent="235" name="user_right">
       <Position>3</Position>
       <DataType>int(1)|0s</DataType>
       <DefaultExpression>&apos;1&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="243" parent="235" name="PRIMARY">
+    <column id="242" parent="235" name="dorm_id">
+      <Position>4</Position>
+      <DataType>varchar(12)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <index id="243" parent="235" name="dorm_id">
+      <ColNames>dorm_id</ColNames>
+      <Type>btree</Type>
+    </index>
+    <key id="244" parent="235" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>user_id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="244" parent="236" name="building_id">
+    <foreign-key id="245" parent="235" name="account_ibfk_1">
+      <ColNames>dorm_id</ColNames>
+      <RefSchemaName>javaee</RefSchemaName>
+      <RefTableName>dorm</RefTableName>
+      <RefColNames>dorm_id</RefColNames>
+      <OnUpdate>cascade</OnUpdate>
+      <OnDelete>cascade</OnDelete>
+    </foreign-key>
+    <column id="246" parent="236" name="building_id">
       <Position>1</Position>
       <DataType>varchar(12)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="245" parent="236" name="building_name">
+    <column id="247" parent="236" name="building_name">
       <Position>2</Position>
       <DataType>varchar(10)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="246" parent="236" name="PRIMARY">
+    <key id="248" parent="236" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>building_id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="247" parent="237" name="user_id">
+    <column id="249" parent="237" name="user_id">
       <Position>1</Position>
       <DataType>varchar(12)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="248" parent="237" name="building_id">
+    <column id="250" parent="237" name="building_id">
       <Position>2</Position>
       <DataType>varchar(12)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="249" parent="237" name="ba_id">
-      <Position>3</Position>
-      <DataType>varchar(12)|0s</DataType>
-      <NotNull>1</NotNull>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <index id="250" parent="237" name="user_id">
+    <index id="251" parent="237" name="user_id">
       <ColNames>user_id</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="251" parent="237" name="building_id">
+    <index id="252" parent="237" name="building_id">
       <ColNames>building_id</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="252" parent="237" name="PRIMARY">
-      <NameSurrogate>1</NameSurrogate>
-      <ColNames>ba_id</ColNames>
-      <Primary>1</Primary>
-    </key>
     <foreign-key id="253" parent="237" name="building_admin_ibfk_1">
       <ColNames>user_id</ColNames>
       <RefSchemaName>javaee</RefSchemaName>
@@ -1036,9 +1041,9 @@
       <DataType>int(11)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="258" parent="238" name="dorm_type">
+    <column id="258" parent="238" name="dorm_people_max">
       <Position>4</Position>
-      <DataType>varchar(10)|0s</DataType>
+      <DataType>int(10)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
     <key id="259" parent="238" name="PRIMARY">
@@ -1046,52 +1051,5 @@
       <ColNames>dorm_id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="260" parent="239" name="user_id">
-      <Position>1</Position>
-      <DataType>varchar(12)|0s</DataType>
-      <NotNull>1</NotNull>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="261" parent="239" name="dorm_id">
-      <Position>2</Position>
-      <DataType>varchar(12)|0s</DataType>
-      <NotNull>1</NotNull>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="262" parent="239" name="da_id">
-      <Position>3</Position>
-      <DataType>varchar(12)|0s</DataType>
-      <NotNull>1</NotNull>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <index id="263" parent="239" name="user_id">
-      <ColNames>user_id</ColNames>
-      <Type>btree</Type>
-    </index>
-    <index id="264" parent="239" name="dorm_id">
-      <ColNames>dorm_id</ColNames>
-      <Type>btree</Type>
-    </index>
-    <key id="265" parent="239" name="PRIMARY">
-      <NameSurrogate>1</NameSurrogate>
-      <ColNames>da_id</ColNames>
-      <Primary>1</Primary>
-    </key>
-    <foreign-key id="266" parent="239" name="dorm_admin_ibfk_3">
-      <ColNames>user_id</ColNames>
-      <RefSchemaName>javaee</RefSchemaName>
-      <RefTableName>account</RefTableName>
-      <RefColNames>user_id</RefColNames>
-      <OnUpdate>cascade</OnUpdate>
-      <OnDelete>cascade</OnDelete>
-    </foreign-key>
-    <foreign-key id="267" parent="239" name="dorm_admin_ibfk_2">
-      <ColNames>dorm_id</ColNames>
-      <RefSchemaName>javaee</RefSchemaName>
-      <RefTableName>dorm</RefTableName>
-      <RefColNames>dorm_id</RefColNames>
-      <OnUpdate>cascade</OnUpdate>
-      <OnDelete>cascade</OnDelete>
-    </foreign-key>
   </database-model>
 </dataSource>

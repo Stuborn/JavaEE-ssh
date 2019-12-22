@@ -1,10 +1,12 @@
 package cn.edu.zjut.po;
 
 import java.util.Objects;
+import java.util.Set;
 
 public class BuildingEntity {
     private String buildingId;
     private String buildingName;
+    private Set<AccountEntity> accounts;
 
     public String getBuildingId() {
         return buildingId;
@@ -22,6 +24,14 @@ public class BuildingEntity {
         this.buildingName = buildingName;
     }
 
+    public Set<AccountEntity> getAccounts() {
+        return accounts;
+    }
+
+    public void setAccounts(Set<AccountEntity> accounts) {
+        this.accounts = accounts;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -35,4 +45,5 @@ public class BuildingEntity {
     public int hashCode() {
         return Objects.hash(buildingId, buildingName);
     }
+
 }

@@ -1,13 +1,20 @@
 <?xml version='1.0' encoding='utf-8'?>
 <!DOCTYPE hibernate-mapping PUBLIC
-    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
-    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
 
     <class name="cn.edu.zjut.po.DormEntity" table="dorm" schema="javaee">
         <id name="dormId" column="dorm_id"/>
         <property name="dormName" column="dorm_name"/>
         <property name="dormPeopleNum" column="dorm_people_num"/>
-        <property name="dormType" column="dorm_type"/>
+        <property name="dormPeopleMax" column="dorm_people_max"/>
+        <set name="users" inverse="true">
+            <key>
+                <column name="dorm_id"/>
+            </key>
+            <!--一对多关系，一个寝室多个学生-->
+            <one-to-many not-found="ignore" class="cn.edu.zjut.po.AccountEntity"/>
+        </set>
     </class>
 </hibernate-mapping>

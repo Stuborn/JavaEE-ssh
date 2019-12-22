@@ -1,12 +1,16 @@
 package cn.edu.zjut.po;
 
+import java.util.Collection;
+import java.util.HashSet;
 import java.util.Objects;
+import java.util.Set;
 
 public class DormEntity {
     private String dormId;
     private String dormName;
     private Integer dormPeopleNum;
-    private String dormType;
+    private Integer dormPeopleMax;
+    private Set<AccountEntity> users = new HashSet<>();
 
     public String getDormId() {
         return dormId;
@@ -32,14 +36,21 @@ public class DormEntity {
         this.dormPeopleNum = dormPeopleNum;
     }
 
-    public String getDormType() {
-        return dormType;
+    public Integer getDormPeopleMax() {
+        return dormPeopleMax;
     }
 
-    public void setDormType(String dormType) {
-        this.dormType = dormType;
+    public void setDormPeopleMax(Integer dormPeopleMax) {
+        this.dormPeopleMax = dormPeopleMax;
     }
 
+    public Set<AccountEntity> getUsers() {
+        return users;
+    }
+
+    public void setUsers(Set<AccountEntity> users) {
+        this.users = users;
+    }
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -48,11 +59,12 @@ public class DormEntity {
         return Objects.equals(dormId, that.dormId) &&
                 Objects.equals(dormName, that.dormName) &&
                 Objects.equals(dormPeopleNum, that.dormPeopleNum) &&
-                Objects.equals(dormType, that.dormType);
+                Objects.equals(dormPeopleMax, that.dormPeopleMax);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(dormId, dormName, dormPeopleNum, dormType);
+        return Objects.hash(dormId, dormName, dormPeopleNum, dormPeopleMax);
     }
+
 }

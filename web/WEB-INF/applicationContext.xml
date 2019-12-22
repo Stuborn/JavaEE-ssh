@@ -26,9 +26,7 @@
             <list>
                 <value>cn/edu/zjut/po/AccountEntity.hbm.xml</value>
                 <value>cn/edu/zjut/po/BuildingEntity.hbm.xml</value>
-                <value>cn/edu/zjut/po/BuildingAdminEntity.hbm.xml</value>
                 <value>cn/edu/zjut/po/DormEntity.hbm.xml</value>
-                <value>cn/edu/zjut/po/DormAdminEntity.hbm.xml</value>
             </list>
         </property>
     </bean>

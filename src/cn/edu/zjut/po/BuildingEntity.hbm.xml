@@ -7,5 +7,12 @@
     <class name="cn.edu.zjut.po.BuildingEntity" table="building" schema="javaee">
         <id name="buildingId" column="building_id"/>
         <property name="buildingName" column="building_name"/>
+        <set name="accounts" inverse="true" table="building_admin">
+            <key>
+                <column name="user_id"/>
+            </key>
+            <!--多对多关系，一栋楼有多个管理员，一个管理员有多栋楼-->
+            <many-to-many class="cn.edu.zjut.po.AccountEntity"/>
+        </set>
     </class>
 </hibernate-mapping>

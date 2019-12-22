@@ -4,10 +4,21 @@
         "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
 
-    <class name="cn.edu.zjut.po.AccountEntity" table="account" schema="javaee" dynamic-insert="true"
-           dynamic-update="true">
+    <class name="cn.edu.zjut.po.AccountEntity" table="account" schema="javaee" dynamic-update="true"
+           dynamic-insert="true">
         <id name="userId" column="user_id"/>
         <property name="userPassword" column="user_password"/>
         <property name="userRight" column="user_right"/>
+        <!--多对一关系，多个学生一个寝室-->
+        <many-to-one name="dormByDormId" class="cn.edu.zjut.po.DormEntity">
+            <column name="dorm_id"/>
+        </many-to-one>
+        <set name="buildings" inverse="true" table="building_admin">
+            <key>
+                <column name="building_id"/>
+            </key>
+            <!--多对多关系，一栋楼有多个管理员，一个管理员有多栋楼-->
+            <many-to-many class="cn.edu.zjut.po.BuildingEntity"/>
+        </set>
     </class>
 </hibernate-mapping>
