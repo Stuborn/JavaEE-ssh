@@ -1,10 +1,11 @@
+<%@ taglib prefix="s" uri="/struts-tags" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>人事管理系统-首页</title>
+    <title>宿舍管理系统-首页</title>
     <!-- Bootstrap Styles-->
     <link href="assets/css/bootstrap.min.css" rel="stylesheet"/>
     <!-- FontAwesome Styles-->
@@ -31,6 +32,7 @@
         </div>
 
         <ul class="nav navbar-top-links navbar-right">
+            <%--
             <li class="dropdown">
                 <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
                     <i class="fa fa-envelope fa-fw"></i> <i class="fa fa-caret-down"></i>
@@ -103,9 +105,9 @@
                             </div>
                         </a>
                     </li>
-
                 </ul>
-                <!-- /.dropdown-alerts -->
+                --%>
+            <!-- /.dropdown-alerts -->
             </li>
             <!-- /.dropdown -->
             <li class="dropdown">
@@ -126,42 +128,40 @@
             <!-- /.dropdown -->
         </ul>
     </nav>
-    <!--/. NAV TOP  -->
+    <!--/. NAV TOP -->
     <nav class="navbar-default navbar-side" role="navigation">
         <div class="sidebar-collapse">
             <ul class="nav" id="main-menu">
                 <li>
                     <a class="active-menu" href="index.jsp"><i class="fa fa-dashboard"></i> 首页</a>
                 </li>
-                <li>
-                    <a href="people.jsp"><i class="fa fa-desktop"></i> 人员管理</a>
-                </li>
-                <li>
-                    <a href="salary.jsp"><i class="fa fa-bar-chart-o"></i> 工资管理</a>
-                </li>
-                <li>
-                    <a href="decrease.jsp"><i class="fa fa-qrcode"></i> 专项扣除管理</a>
-                </li>
-                <li>
-                    <a href="history.jsp"><i class="fa fa-table"></i> 历史工资查询</a>
-                </li>
+                <s:if test="#session.user.user_right==4">
+                    <li>
+                        <a href="building.jsp"><i class="fa fa-desktop"></i> 楼宇管理</a>
+                    </li>
+                </s:if>
+                <s:if test="#session.user.user_right>=3">
+                    <li>
+                        <a href="dorm.jsp"><i class="fa fa-bar-chart-o"></i> 宿舍管理</a>
+                    </li>
+                </s:if>
             </ul>
 
         </div>
 
     </nav>
-    <!-- /. NAV SIDE  -->
+    <!-- /. NAV SIDE -->
     <div id="page-wrapper">
         <div id="page-inner">
             <div class="row">
                 <div class="col-md-12">
                     <h1 class="page-header">
                         首页
-                        <small>人员概况</small>
+                        <small>宿舍概况</small>
                     </h1>
                 </div>
             </div>
-            <!-- /. ROW  -->
+            <!-- /. ROW -->
 
             <div class="row">
                 <div class="col-md-3 col-sm-12 col-xs-12">
@@ -173,7 +173,7 @@
                         <div class="panel-right pull-right">
                             <h3>1
                             </h3>
-                            <strong> 部门数量</strong>
+                            <strong> 用户数量</strong>
                         </div>
                     </div>
                 </div>
@@ -186,7 +186,7 @@
                         <div class="panel-right pull-right">
                             <h3>2
                             </h3>
-                            <strong> 员工数量</strong>
+                            <strong> 楼宇数量</strong>
 
                         </div>
                     </div>
@@ -199,7 +199,7 @@
                         </div>
                         <div class="panel-right pull-right">
                             <h3>15 </h3>
-                            <strong> 通知 </strong>
+                            <strong> 宿舍数量 </strong>
 
                         </div>
                     </div>
@@ -220,69 +220,70 @@
                 </div>
             </div>
 
+            <%--
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">
+                                        昨日出勤
+                                    </div>
+                                    <div class="panel-body">
+                                        <div id="morris-line-chart"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
 
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            昨日出勤
-                        </div>
-                        <div class="panel-body">
-                            <div id="morris-line-chart"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col-xs-6 col-md-3">
-                    <div class="panel panel-default">
-                        <div class="panel-body easypiechart-panel">
-                            <h4>正常</h4>
-                            <div class="easypiechart" id="easypiechart-blue" data-percent="82"><span
-                                    class="percent">82%</span>
+                        <div class="row">
+                            <div class="col-xs-6 col-md-3">
+                                <div class="panel panel-default">
+                                    <div class="panel-body easypiechart-panel">
+                                        <h4>正常</h4>
+                                        <div class="easypiechart" id="easypiechart-blue" data-percent="82"><span
+                                                class="percent">82%</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xs-6 col-md-3">
+                                <div class="panel panel-default">
+                                    <div class="panel-body easypiechart-panel">
+                                        <h4>迟到</h4>
+                                        <div class="easypiechart" id="easypiechart-red" data-percent="13">
+                                            <span class="percent">11%</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xs-6 col-md-3">
+                                <div class="panel panel-default">
+                                    <div class="panel-body easypiechart-panel">
+                                        <h4>早退</h4>
+                                        <div class="easypiechart" id="easypiechart-teal" data-percent="5"><span
+                                                class="percent">5%</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xs-6 col-md-3">
+                                <div class="panel panel-default">
+                                    <div class="panel-body easypiechart-panel">
+                                        <h4>请假</h4>
+                                        <div class="easypiechart" id="easypiechart-orange" data-percent="2"><span
+                                                class="percent">2%</span>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </div>
-                <div class="col-xs-6 col-md-3">
-                    <div class="panel panel-default">
-                        <div class="panel-body easypiechart-panel">
-                            <h4>迟到</h4>
-                            <div class="easypiechart" id="easypiechart-red" data-percent="13">
-                                <span class="percent">11%</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xs-6 col-md-3">
-                    <div class="panel panel-default">
-                        <div class="panel-body easypiechart-panel">
-                            <h4>早退</h4>
-                            <div class="easypiechart" id="easypiechart-teal" data-percent="5"><span
-                                    class="percent">5%</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xs-6 col-md-3">
-                    <div class="panel panel-default">
-                        <div class="panel-body easypiechart-panel">
-                            <h4>请假</h4>
-                            <div class="easypiechart" id="easypiechart-orange" data-percent="2"><span
-                                    class="percent">2%</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            --%>
             <footer style="text-align: center"><p>Copyright &copy; 2019.ZJUT All rights reserved.</footer>
         </div>
-        <!-- /. PAGE INNER  -->
+        <!-- /. PAGE INNER -->
     </div>
-    <!-- /. PAGE WRAPPER  -->
+    <!-- /. PAGE WRAPPER -->
 </div>
-<!-- /. WRAPPER  -->
+<!-- /. WRAPPER -->
 <!-- JS Scripts-->
 <!-- jQuery Js -->
 <script src="assets/js/jquery-1.12.4.min.js"></script>
