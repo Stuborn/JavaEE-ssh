@@ -1,8 +1,8 @@
 package cn.edu.zjut.service;
 
-import cn.edu.zjut.po.Account;
+import cn.edu.zjut.po.AccountEntity;
 
 public interface IUserService {
-    boolean register(Account user);
-    boolean login(Account user);
+    boolean register(AccountEntity user);
+    boolean login(AccountEntity user);
 }

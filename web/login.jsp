@@ -49,11 +49,15 @@
                         <s:form role="form" action="login" method="post" cssClass="login-form">
                             <div class="form-group">
                                 <label class="sr-only" for="form-username">用户名</label>
-                                <s:textfield type="text" name="loginUser.id" placeholder="用户名" cssClass="form-username form-control login-textfield" id="form-username" cssStyle="margin-bottom: 22px;"/>
+                                <s:textfield type="text" name="loginUser.userId" placeholder="用户名"
+                                             cssClass="form-username form-control login-textfield" id="form-username"
+                                             cssStyle="margin-bottom: 22px;"/>
                             </div>
                             <div class="form-group">
                                 <label class="sr-only" for="form-password">密码</label>
-                                <s:textfield type="password" name="loginUser.password" placeholder="密码" cssClass="form-password form-control login-textfield" id="form-password" cssStyle="margin-bottom: 22px;"/>
+                                <s:textfield type="password" name="loginUser.userPassword" placeholder="密码"
+                                             cssClass="form-password form-control login-textfield" id="form-password"
+                                             cssStyle="margin-bottom: 22px;"/>
                             </div>
                             <div class="err"></div>
                             <s:submit value="登陆"/>

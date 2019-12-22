@@ -29,12 +29,12 @@
                 <li>
                     <a class="active-menu" href="index.jsp"><i class="fa fa-dashboard"></i> 首页</a>
                 </li>
-                <s:if test="#session.user.user_right==4">
+                <s:if test="#session.user.userRight==4">
                     <li>
                         <a href="building.jsp"><i class="fa fa-desktop"></i> 楼宇管理</a>
                     </li>
                 </s:if>
-                <s:if test="#session.user.user_right>=3">
+                <s:if test="#session.user.userRight>=3">
                     <li>
                         <a href="dorm.jsp"><i class="fa fa-bar-chart-o"></i> 宿舍管理</a>
                     </li>

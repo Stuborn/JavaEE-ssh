@@ -1,7 +1,7 @@
 package cn.edu.zjut.service;
 
 import cn.edu.zjut.dao.IAccountDAO;
-import cn.edu.zjut.po.Account;
+import cn.edu.zjut.po.AccountEntity;
 import com.opensymphony.xwork2.ActionContext;
 
 import java.util.List;
@@ -23,15 +23,17 @@ public class UserService implements IUserService {
 
     /**
      * 用户注册
+     *
      * @param user account
      * @return 注册结果
      */
-    public boolean register(Account user) {
+    public boolean register(AccountEntity user) {
         System.out.println("execute --register()-- method.");
+
         try {
             accountDao.save(user);
             return true;
-        }catch (Exception e){
+        } catch (Exception e) {
             ActionContext ctx = ActionContext.getContext();
             session = (Map) ctx.getSession();
             request = (Map) ctx.get("request");
@@ -43,10 +45,11 @@ public class UserService implements IUserService {
 
     /**
      * 用户登录
+     *
      * @param user account
      * @return 登陆结果
      */
-    public boolean login(Account user) {
+    public boolean login(AccountEntity user) {
         ActionContext ctx = ActionContext.getContext();
         session = (Map) ctx.getSession();
         request = (Map) ctx.get("request");
@@ -55,10 +58,9 @@ public class UserService implements IUserService {
         if (list.isEmpty()) {
             request.put("tip", "登录失败，请检查用户名和密码！");
             return false;
-        }
-        else {
+        } else {
             request.put("tip", "登录成功！");
-            user = (Account) list.get(0);
+            user = (AccountEntity) list.get(0);
             session.put("user", user);
             return true;
         }

@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="cn.edu.zjut.po.AccountEntity" table="account" schema="javaee" dynamic-insert="true"
+           dynamic-update="true">
+        <id name="userId" column="user_id"/>
+        <property name="userPassword" column="user_password"/>
+        <property name="userRight" column="user_right"/>
+    </class>
+</hibernate-mapping>

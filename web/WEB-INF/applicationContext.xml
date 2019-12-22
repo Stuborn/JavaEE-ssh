@@ -18,11 +18,17 @@
             <props>
                 <prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
                 <prop key="hibernate.hbm2ddl.auto">update</prop>
+                <prop key="hibernate.connection.url">jdbc:mysql://localhost:3306/javaee</prop>
+                <prop key="hibernate.connection.driver_class">com.mysql.jdbc.Driver</prop>
             </props>
         </property>
         <property name="mappingResources">
             <list>
-                <value>cn/edu/zjut/po/Account.hbm.xml</value>
+                <value>cn/edu/zjut/po/AccountEntity.hbm.xml</value>
+                <value>cn/edu/zjut/po/BuildingEntity.hbm.xml</value>
+                <value>cn/edu/zjut/po/BuildingAdminEntity.hbm.xml</value>
+                <value>cn/edu/zjut/po/DormEntity.hbm.xml</value>
+                <value>cn/edu/zjut/po/DormAdminEntity.hbm.xml</value>
             </list>
         </property>
     </bean>

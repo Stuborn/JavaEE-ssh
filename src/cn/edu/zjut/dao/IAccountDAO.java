@@ -1,11 +1,11 @@
 package cn.edu.zjut.dao;
 
-import cn.edu.zjut.po.Account;
+import cn.edu.zjut.po.AccountEntity;
 
 import java.util.List;
 
 
 public interface IAccountDAO {
-    void save(Account transientInstance);
-    List findByAccount(Account account);
+    void save(AccountEntity transientInstance);
+    List findByAccount(AccountEntity account);
 }

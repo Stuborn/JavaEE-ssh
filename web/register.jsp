@@ -49,15 +49,21 @@
                             <span style="color: red"><s:property value="#request.tip"/></span>
                             <div class="form-group">
                                 <label class="sr-only" for="form-username">用户名</label>
-                                <s:textfield type="text" name="loginUser.id" placeholder="用户名" cssClass="form-username form-control login-textfield" id="form-username" cssStyle="margin-bottom: 22px;"/>
+                                <s:textfield type="text" name="loginUser.userId" placeholder="用户名"
+                                             cssClass="form-username form-control login-textfield" id="form-username"
+                                             cssStyle="margin-bottom: 22px;"/>
                             </div>
                             <div class="form-group">
                                 <label class="sr-only" for="form-password-1">密码</label>
-                                <s:textfield type="password" placeholder="请输入密码" cssClass="form-password form-control login-textfield" id="form-password-1" cssStyle="margin-bottom: 22px;"/>
+                                <s:textfield type="password" placeholder="请输入密码"
+                                             cssClass="form-password form-control login-textfield" id="form-password-1"
+                                             cssStyle="margin-bottom: 22px;"/>
                             </div>
                             <div class="form-group">
                                 <label class="sr-only" for="form-password-2">再次输入密码</label>
-                                <s:textfield type="password" name="loginUser.password" placeholder="再次输入密码" cssClass="form-password form-control login-textfield" id="form-password-2" cssStyle="margin-bottom: 22px;"/>
+                                <s:textfield type="password" name="loginUser.userPassword" placeholder="再次输入密码"
+                                             cssClass="form-password form-control login-textfield" id="form-password-2"
+                                             cssStyle="margin-bottom: 22px;"/>
                             </div>
                             <div class="err"></div>
                             <s:submit value="注册"/>

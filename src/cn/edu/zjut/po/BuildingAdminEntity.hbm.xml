@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="cn.edu.zjut.po.BuildingAdminEntity" table="building_admin" schema="javaee">
+        <id name="baId" column="ba_id"/>
+        <many-to-one name="accountByUserId" class="cn.edu.zjut.po.AccountEntity">
+            <column name="user_id"/>
+        </many-to-one>
+        <many-to-one name="buildingByBuildingId" class="cn.edu.zjut.po.BuildingEntity">
+            <column name="building_id"/>
+        </many-to-one>
+    </class>
+</hibernate-mapping>

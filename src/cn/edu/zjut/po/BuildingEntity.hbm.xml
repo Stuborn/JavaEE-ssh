@@ -4,9 +4,8 @@
     "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
 
-    <class name="cn.edu.zjut.po.Account" table="account" schema="javaee">
-        <id name="id" column="user_id"/>
-        <property name="password" column="user_password"/>
-        <property name="user_right" column="user_right"/>
+    <class name="cn.edu.zjut.po.BuildingEntity" table="building" schema="javaee">
+        <id name="buildingId" column="building_id"/>
+        <property name="buildingName" column="building_name"/>
     </class>
 </hibernate-mapping>
