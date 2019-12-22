@@ -276,7 +276,7 @@
                     </div>
                 </div>
             </div>
-            <footer style="text-align: center"><p>Copyright &copy; 2019.Company name All rights reserved.</footer>
+            <footer style="text-align: center"><p>Copyright &copy; 2019.ZJUT All rights reserved.</footer>
         </div>
         <!-- /. PAGE INNER  -->
     </div>

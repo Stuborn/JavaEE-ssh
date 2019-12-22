@@ -5,7 +5,8 @@
 <hibernate-mapping>
 
     <class name="cn.edu.zjut.po.Account" table="account" schema="javaee">
-        <id name="id" column="ID"/>
-        <property name="password" column="password"/>
+        <id name="id" column="user_id"/>
+        <property name="password" column="user_password"/>
+        <property name="user_right" column="user_right"/>
     </class>
 </hibernate-mapping>
